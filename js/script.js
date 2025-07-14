@@ -1,28 +1,45 @@
-  // Mobile menu toggle - Fixed implementation
-        const hamburgerButton = document.getElementById('hamburgerButton');
-        const mobileMenu = document.getElementById('mobileMenu');
+    // Mobile menu toggle - Fixed implementation
+    const hamburgerButton = document.getElementById('hamburgerButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
 
-        hamburgerButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            hamburgerButton.classList.toggle('is-active');
+    hamburgerButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        hamburgerButton.classList.toggle('is-active');
 
-            // Prevent scrolling when menu is open
-            if (mobileMenu.classList.contains('hidden')) {
-                document.body.style.overflow = 'auto';
-            } else {
-                document.body.style.overflow = 'hidden';
-            }
+        // Prevent scrolling when menu is open
+        if (mobileMenu.classList.contains('hidden')) {
+            document.body.style.overflow = 'auto';
+        } else {
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    // Close mobile menu when clicking the close button
+    closeMobileMenu.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        hamburgerButton.classList.remove('is-active');
+        document.body.style.overflow = 'auto';
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            hamburgerButton.classList.remove('is-active');
+            document.body.style.overflow = 'auto';
         });
+    });
 
-        // Close mobile menu when clicking on a link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                hamburgerButton.classList.remove('is-active');
-                document.body.style.overflow = 'auto';
-            });
-        });
+    // Close mobile menu when clicking outside the menu content
+    mobileMenu.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) {
+            mobileMenu.classList.add('hidden');
+            hamburgerButton.classList.remove('is-active');
+            document.body.style.overflow = 'auto';
+        }
+    });
 
         // Dark mode toggle - Fixed implementation
         const themeToggle = document.getElementById('themeToggle');
