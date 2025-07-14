@@ -41,36 +41,38 @@
         }
     });
 
-        // Dark mode toggle - Fixed implementation
-        const themeToggle = document.getElementById('themeToggle');
-        const darkIcon = document.getElementById('darkIcon');
-        const lightIcon = document.getElementById('lightIcon');
+    // Theme switcher functionality
+    const dayMode = document.getElementById('dayMode');
+    const nightMode = document.getElementById('nightMode');
 
-        // Check for saved user preference or use system preference
-        const storedTheme = localStorage.getItem('color-theme');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Set initial state
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        nightMode.classList.add('opacity-100');
+        dayMode.classList.add('opacity-70');
+    } else {
+        document.documentElement.classList.remove('dark');
+        dayMode.classList.add('opacity-100');
+        nightMode.classList.add('opacity-70');
+    }
 
-        if (storedTheme === 'dark' || (!storedTheme && systemDark)) {
-            document.documentElement.classList.add('dark');
-            darkIcon.classList.add('hidden');
-            lightIcon.classList.remove('hidden');
-        } else {
-            document.documentElement.classList.remove('dark');
-            darkIcon.classList.remove('hidden');
-            lightIcon.classList.add('hidden');
-        }
+    // Day mode click handler
+    dayMode.addEventListener('click', () => {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        dayMode.classList.add('opacity-100');
+        nightMode.classList.remove('opacity-100');
+        dayMode.classList.remove('opacity-70');
+        nightMode.classList.add('opacity-70');
+    });
 
-        themeToggle.addEventListener('click', () => {
-            // Toggle icons
-            darkIcon.classList.toggle('hidden');
-            lightIcon.classList.toggle('hidden');
-
-            // Toggle theme
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('color-theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('color-theme', 'dark');
-            }
-        });
+    // Night mode click handler
+    nightMode.addEventListener('click', () => {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        nightMode.classList.add('opacity-100');
+        dayMode.classList.remove('opacity-100');
+        nightMode.classList.remove('opacity-70');
+        dayMode.classList.add('opacity-70');
+    });

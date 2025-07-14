@@ -11,7 +11,7 @@
 
 <body class="bg-white dark:bg-gray-900">
     <div class="">
-        <header class="bg-primary text-white">
+        <header class="bg-primary text-white  dark:bg-gray-800">
             <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center justify-between py-6">
@@ -34,12 +34,13 @@
                                 Contact
                             </span>
                         </a>
-                        <!-- Language Switcher -->
+                        <!-- Theme Switcher -->
                         <div class="flex items-center space-x-2 ml-4">
-                            <a href="/de" class="font-medium opacity-70 hover:opacity-100 text-lg">Day</a>
+                            <button id="dayMode" class="font-medium text-lg opacity-100 hover:opacity-100 transition-opacity">Day</button>
                             <span class="opacity-50">/</span>
-                            <a href="/en" class="font-medium hover:opacity-70 text-lg">Night</a>
+                            <button id="nightMode" class="font-medium text-lg opacity-70 hover:opacity-100 transition-opacity">Night</button>
                         </div>
+
                     </div>
                 </div>
                 <!-- Mobile Navigation -->
@@ -84,9 +85,9 @@
                             class="text-white dark:text-white text-2xl font-medium py-2 border-b border-white dark:border-gray-700">Contact</a>
                         <!-- Language Switcher -->
                         <div class="flex items-center space-x-3 mt-8">
-                            <a href="/de" class="text-white dark:text-gray-400 text-2xl font-medium">Day</a>
-                            <span class="text-gray-300">/</span>
-                            <a href="/en" class="text-white dark:text-white text-2xl font-medium">Night</a>
+                            <button id="dayMode" class="font-medium text-lg opacity-100 hover:opacity-100 transition-opacity">Day</button>
+                            <span class="opacity-50">/</span>
+                            <button id="nightMode" class="font-medium text-lg opacity-70 hover:opacity-100 transition-opacity">Night</button>
                         </div>
                     </div>
                 </div>
@@ -94,7 +95,7 @@
         </header>
         <main>
             <!-- banner -->
-            <section class="py-16 md:py-32 bg-primary text-white overflow-hidden">
+            <section class="py-16 md:py-32 bg-primary text-white  dark:bg-gray-800 overflow-hidden">
                 <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
                     <div class="flex flex-col sm:flex-row md:flex-row items-center ">
                         <!-- Text Column -->
@@ -827,7 +828,7 @@
             </div>
             <!-- end  -->
         </main>
-        <footer class="relative bg-primary text-white py-16 overflow-hidden">
+        <footer class="relative bg-primary text-white py-16   dark:bg-gray-800 overflow-hidden">
             <!-- Background Banner (Responsive & Full Coverage) -->
             <div class="absolute inset-0 z-0 pointer-events-none bg-no-repeat bg-center bg-cover opacity-25"
                 style="background-image: url('./img/banner/banner.svg');"></div>
