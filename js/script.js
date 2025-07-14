@@ -66,8 +66,8 @@ document.getElementById('nightModeMobile').classList.remove('opacity-100');
 }
 }
 // Initialize theme
-if (localStorage.getItem('theme') === 'dark' || 
-(!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+if (localStorage.getItem('theme') === 'light' || 
+(!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: light)').matches)) {
 setTheme('dark');
 } else {
 setTheme('light');
