@@ -1,20 +1,25 @@
-        .hamburger-line {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background-color: currentColor;
-            margin-bottom: 4px;
-            transition: all 0.3s ease;
-        }
+.hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: currentColor;
+    margin-bottom: 4px;
+    transition: all 0.3s ease;
+}
 
-        .hamburger.is-active .hamburger-line:first-child {
-            transform: translateY(6px) rotate(45deg);
-        }
+.hamburger.is-active .hamburger-line:first-child {
+    transform: translateY(6px) rotate(45deg);
+}
 
-        .hamburger.is-active .hamburger-line:last-child {
-            transform: translateY(-6px) rotate(-45deg);
-        }
+.hamburger.is-active .hamburger-line:last-child {
+    transform: translateY(-6px) rotate(-45deg);
+}
 
-        .mobile-menu {
-            transition: all 0.3s ease;
-        }
+.mobile-menu {
+    transition: all 0.3s ease;
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
