@@ -35,6 +35,7 @@ hamburgerButton.classList.remove('is-active');
 document.body.style.overflow = 'auto';
 }
 });
+
 // Theme switching function
 function setTheme(theme) {
 if (theme === 'dark') {
@@ -66,11 +67,11 @@ document.getElementById('nightModeMobile').classList.remove('opacity-100');
 }
 }
 // Initialize theme
-if (localStorage.getItem('theme') === 'light' || 
-(!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-setTheme('dark');
+if (localStorage.getItem('theme') === 'dark' || 
+    (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    setTheme('dark');
 } else {
-setTheme('light');
+    setTheme('light');
 }
 // Event listeners for desktop theme switcher
 document.getElementById('dayMode').addEventListener('click', () => setTheme('light'));
