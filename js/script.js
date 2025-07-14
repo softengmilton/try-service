@@ -41,38 +41,49 @@
         }
     });
 
-    // Theme switcher functionality
-    const dayMode = document.getElementById('dayMode');
-    const nightMode = document.getElementById('nightMode');
-
-    // Set initial state
-    if (localStorage.getItem('theme') === 'dark' || 
-        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-        nightMode.classList.add('opacity-100');
-        dayMode.classList.add('opacity-70');
-    } else {
-        document.documentElement.classList.remove('dark');
-        dayMode.classList.add('opacity-100');
-        nightMode.classList.add('opacity-70');
-    }
-
-    // Day mode click handler
-    dayMode.addEventListener('click', () => {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-        dayMode.classList.add('opacity-100');
-        nightMode.classList.remove('opacity-100');
-        dayMode.classList.remove('opacity-70');
-        nightMode.classList.add('opacity-70');
-    });
-
-    // Night mode click handler
-    nightMode.addEventListener('click', () => {
+// Theme switching function
+function setTheme(theme) {
+    if (theme === 'dark') {
         document.documentElement.classList.add('dark');
         localStorage.setItem('theme', 'dark');
-        nightMode.classList.add('opacity-100');
-        dayMode.classList.remove('opacity-100');
-        nightMode.classList.remove('opacity-70');
-        dayMode.classList.add('opacity-70');
-    });
+        // Update desktop buttons
+        document.getElementById('nightMode').classList.add('opacity-100');
+        document.getElementById('nightMode').classList.remove('opacity-70');
+        document.getElementById('dayMode').classList.add('opacity-70');
+        document.getElementById('dayMode').classList.remove('opacity-100');
+        // Update mobile buttons
+        document.getElementById('nightModeMobile').classList.add('opacity-100');
+        document.getElementById('nightModeMobile').classList.remove('opacity-70');
+        document.getElementById('dayModeMobile').classList.add('opacity-70');
+        document.getElementById('dayModeMobile').classList.remove('opacity-100');
+    } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        // Update desktop buttons
+        document.getElementById('dayMode').classList.add('opacity-100');
+        document.getElementById('dayMode').classList.remove('opacity-70');
+        document.getElementById('nightMode').classList.add('opacity-70');
+        document.getElementById('nightMode').classList.remove('opacity-100');
+        // Update mobile buttons
+        document.getElementById('dayModeMobile').classList.add('opacity-100');
+        document.getElementById('dayModeMobile').classList.remove('opacity-70');
+        document.getElementById('nightModeMobile').classList.add('opacity-70');
+        document.getElementById('nightModeMobile').classList.remove('opacity-100');
+    }
+}
+
+// Initialize theme
+if (localStorage.getItem('theme') === 'dark' || 
+    (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    setTheme('dark');
+} else {
+    setTheme('light');
+}
+
+// Event listeners for desktop theme switcher
+document.getElementById('dayMode').addEventListener('click', () => setTheme('light'));
+document.getElementById('nightMode').addEventListener('click', () => setTheme('dark'));
+
+// Event listeners for mobile theme switcher
+document.getElementById('dayModeMobile').addEventListener('click', () => setTheme('light'));
+document.getElementById('nightModeMobile').addEventListener('click', () => setTheme('dark'));
