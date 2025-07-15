@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - DivDojo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#FAF6F2] text-[#0F172A]">
+    <div class="min-h-screen flex overflow-hidden">
+
+        <!-- Left Section -->
+        <div class="w-1/2 p-12 flex flex-col justify-between !pb-0">
+            <div class="mt-10">
+                <p class="text-2xl md:text-3xl font-medium text-center text-gray-800 leading-relaxed mb-4">
+                    "Rapid response and heartfelt service. Because, you matter."
+                </p>
+                <p class="text-lg text-gray-600 text-center font-semibold">— TeenyMonster</p>
+            </div>
+            <div class="mt-10">
+                <img src="https://divdojo.com/wp-content/themes/divdojo-child/assets/images/plugin.png"
+                    alt="Illustration" class="w-full h-auto object-contain" />
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="w-1/2 p-16 space-y-12">
+        <!-- Top logo & back link -->
+        <div class="flex justify-between items-center">
+            <a href="https://divdojo.com/" rel="home">
+                <h1 class="text-4xl font-bold leading-tight">TeenyMonster</h1>
+            </a>
+            <a href="https://divdojo.com" class="text-base font-semibold text-black hover:underline">Back to home</a>
+        </div>
+
+        <!-- Heading -->
+        <div>
+            <h2 class="text-6xl serif font-semibold leading-tight text-gray-900 mb-6">
+                <span class="text-[#E81C4F] underline decoration-[#E81C4F] underline-offset-4">Register</span>
+                Now and Start<br><span class="italic">Rolling!</span>
+            </h2>
+            <p class="text-lg text-gray-800">
+                Already have an account? Login
+                <a href="/my-account/" class="text-[#E81C4F] underline hover:text-[#B3133B]">Here</a>
+            </p>
+        </div>
+
+        <!-- Form -->
+        <form method="post" class="space-y-6 pt-2">
+            <!-- Email -->
+            <div>
+                <label for="reg_email" class="block text-sm font-medium text-gray-700 uppercase tracking-wide mb-2">Email
+                    Address <span class="text-red-500">*</span></label>
+                <input type="email" name="email" id="reg_email" required
+                    class="w-full px-5 py-3 border border-black rounded-md text-base focus:outline-none focus:ring-2 focus:ring-black">
+            </div>
+
+            <!-- Info Text -->
+            <p class="text-base text-gray-600">
+                A link to set a new password will be sent to your email address.
+            </p>
+
+            <!-- Hidden fields -->
+            <input type="hidden" name="wc_order_attribution_source_type" value="typein">
+            <input type="hidden" id="woocommerce-register-nonce" name="woocommerce-register-nonce" value="0e8da50896">
+            <input type="hidden" name="_wp_http_referer" value="/my-account/?signup=true">
+
+            <!-- Privacy -->
+            <p class="text-sm text-gray-500 leading-relaxed mt-2">
+                Your personal data will be used to support your experience throughout this website, to manage access to your
+                account, and for other purposes described in our
+                <a href="https://divdojo.com/privacy-policy/" target="_blank"
+                    class="text-[#E81C4F] underline hover:text-[#B3133B]">privacy policy</a>.
+            </p>
+
+            <!-- Submit Button -->
+            <button type="submit"
+                class="w-full bg-black text-white text-base py-3.5 rounded-md font-semibold hover:bg-gray-900 transition">
+                REGISTER
+            </button>
+        </form>
+</div>
+
+    </div>
+</body>
+
+</html>
